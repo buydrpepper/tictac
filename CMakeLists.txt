@@ -6,6 +6,14 @@ project(tictac)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/$<CONFIGURATION>")
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/$<CONFIGURATION>")
 
+#hashmap and the TTT library
+file(GLOB SOURCES
+	vendored/hashmap/*.h
+	vendored/hashmap/*.c
+	src/TicTacToe/*.c
+	src/TicTacToe/*.h
+)
+
 # This assumes the SDL source is available in vendored/SDL
 add_subdirectory(vendored/SDL EXCLUDE_FROM_ALL)
 
@@ -14,3 +22,5 @@ add_executable(tictac WIN32 src/main.c)
 
 # Link to the actual SDL3 library.
 target_link_libraries(tictac PRIVATE SDL3::SDL3)
+
+
