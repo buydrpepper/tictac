@@ -30,3 +30,15 @@ target_link_libraries(tictac PRIVATE SDL3::SDL3)
 target_include_directories(tictac PRIVATE src/TictacToe)
 
 set (CMAKE_C_STANDARD 99)
+
+if (MSVC)
+    # warning level 4
+    add_compile_options(/W4)
+
+    add_compile_options(/Od)
+else()
+    # additional warnings
+    add_compile_options(-Wall -Wextra -Wpedantic)
+
+    add_compile_options(-O0 -g)
+endif()

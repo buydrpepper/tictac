@@ -23,13 +23,7 @@ int TT_PlacePieceFinite(TT_Game const*const this, u16 const player, u16 const x,
 
 				int32_t x2 = x+dx-offsx;
 				int32_t y2 = y+dy-offsy;
-				if(x2 >= sz_board || y2 >= sz_board || x2 < 0 || y2 < 0 ||
-
-
-					!printf("x2: %d\n",x2)||
-					!printf("y2: %d\n",y2)||
-
-					data_ref[y2*sz_board + x2] != player) {
+				if(x2 >= sz_board || y2 >= sz_board || x2 < 0 || y2 < 0 || data_ref[y2*sz_board + x2] != player) {
 					found = 0;
 					break;
 				}
